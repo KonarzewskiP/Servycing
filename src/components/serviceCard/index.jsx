@@ -1,0 +1,112 @@
+import React from 'react';
+import styled from "styled-components";
+import {Marginer} from "../marginer";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faStar} from "@fortawesome/free-solid-svg-icons/faStar";
+
+const CardContainer = styled.div`
+  width: 300px;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.45);
+  margin: 0.5em 0 1.3em 0;
+`
+const TopContainer = styled.div`
+  width: 100%;
+`
+
+const ServiceThumbnail = styled.div`
+  width: 100%;
+  height: 11em;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+`
+
+const ContentContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  padding: 15px 14px;
+`
+
+const BottomContainer = styled.div`
+  width: 100%;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(15, 15, 15, 0.19);
+  padding: 0 10px;
+`
+const Title = styled.h2`
+  font-size: 1em;
+  margin: 0;
+  font-weight: 500;
+  color: #000;
+`
+const SpecialistNAme = styled.h4`
+  font-size: 12px;
+  margin: 0;
+  font-weight: 400;
+  color: rgba(151, 151, 151, 1);
+`
+
+const RatingContainer = styled.div`
+  display: flex;
+  color: #ebe204;
+`
+
+const PriceContainer = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const PriceText = styled.div`
+  margin-left: 3px;
+  color: #2BA679;
+  font-weight: 700;
+`
+
+const StartingAtText = styled.h6`
+  margin: 0;
+  font-weight: 400;
+  color: rgba(161, 161, 161, 0.9);
+`
+
+const ServiceCard = ({thumbnailUrl, specialist, id, title, rate, rating}) => {
+    return (
+        <CardContainer>
+            <TopContainer>
+                <ServiceThumbnail>
+                    <img src={thumbnailUrl} alt={title}/>
+                </ServiceThumbnail>
+            </TopContainer>
+            <ContentContainer>
+                <Title>{title}</Title>
+                <Marginer direction="vertical" margin={10}/>
+                <SpecialistNAme>{specialist.fullName}</SpecialistNAme>
+            </ContentContainer>
+            <BottomContainer>
+                <RatingContainer>
+                    <FontAwesomeIcon icon={faStar} size="sm"/>
+                    {rating}
+                </RatingContainer>
+                <PriceContainer>
+                    <StartingAtText>STARTING AT</StartingAtText>
+                    <PriceText>${rating}/hr</PriceText>
+                </PriceContainer>
+            </BottomContainer>
+        </CardContainer>
+    );
+};
+
+
+export default ServiceCard;
