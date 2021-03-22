@@ -5,6 +5,8 @@ import Navbar from "../../components/navbar";
 import styled from "styled-components";
 import {deviceSize} from "../../components/responsive";
 import Services from "./services";
+import SpecialistAd from "../../components/specialistAd";
+import {Marginer} from "../../components/marginer";
 
 
 const ContentContainer = styled.div`
@@ -26,9 +28,12 @@ const HomePage = () => {
                 <Navbar/>
             </TopSection>
             <InnerPageContainer>
+                <Marginer direction="vertical" margin="2em"/>
                 <ContentContainer>
                     <Services/>
                 </ContentContainer>
+                <Marginer direction="vertical" margin="5em"/>
+                <SpecialistAd/>
             </InnerPageContainer>
         </PageContainer>
     );
