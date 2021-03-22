@@ -12,7 +12,7 @@ const CardContainer = styled.div`
   overflow: hidden;
   background-color: #fff;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.45);
-  margin: 0.5em 0 1.3em 0;
+  margin: 0.5em 0 1.3em 1.8em;
 `
 const TopContainer = styled.div`
   width: 100%;
@@ -51,8 +51,9 @@ const Title = styled.h2`
   margin: 0;
   font-weight: 500;
   color: #000;
+  text-align: start;
 `
-const SpecialistNAme = styled.h4`
+const SpecialistName = styled.h4`
   font-size: 12px;
   margin: 0;
   font-weight: 400;
@@ -86,22 +87,22 @@ const ServiceCard = ({thumbnailUrl, specialist, id, title, rate, rating}) => {
         <CardContainer>
             <TopContainer>
                 <ServiceThumbnail>
-                    <img src={thumbnailUrl} alt={title}/>
+                    <img src={thumbnailUrl} alt={title} />
                 </ServiceThumbnail>
             </TopContainer>
             <ContentContainer>
                 <Title>{title}</Title>
-                <Marginer direction="vertical" margin={10}/>
-                <SpecialistNAme>{specialist.fullName}</SpecialistNAme>
+                <Marginer direction="vertical" margin={10} />
+                <SpecialistName>{specialist.fullName}</SpecialistName>
             </ContentContainer>
             <BottomContainer>
                 <RatingContainer>
-                    <FontAwesomeIcon icon={faStar} size="sm"/>
+                    <FontAwesomeIcon icon={faStar} size="sm" />
                     {rating}
                 </RatingContainer>
                 <PriceContainer>
                     <StartingAtText>STARTING AT</StartingAtText>
-                    <PriceText>${rating}/hr</PriceText>
+                    <PriceText>${rate}/hr</PriceText>
                 </PriceContainer>
             </BottomContainer>
         </CardContainer>

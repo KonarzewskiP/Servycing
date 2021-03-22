@@ -4,13 +4,8 @@ import TopSection from "./topSection";
 import Navbar from "../../components/navbar";
 import styled from "styled-components";
 import {deviceSize} from "../../components/responsive";
-import ServiceCard from "../../components/serviceCard";
+import Services from "./services";
 
-
-const Title = styled.h1`
-  font-weight: 900;
-  color: #000;
-`
 
 const ContentContainer = styled.div`
   width: 100%;
@@ -18,19 +13,11 @@ const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-`
 
-const service = {
-    "id": 2,
-    "title": "I will paint your car from top to bottom",
-    "thumbnailUrl": "http://localhost:9000/car.jpg",
-    "rate": 50,
-    "rating": 3,
-    "specialist": {
-        "id": 1,
-        "fullName": "Mark brone"
-    }
-}
+/*  @media screen and (max-width: ${deviceSize.mobile}px) {
+    padding: 5px;
+  }*/
+`
 
 const HomePage = () => {
     return (
@@ -40,8 +27,7 @@ const HomePage = () => {
             </TopSection>
             <InnerPageContainer>
                 <ContentContainer>
-                    <Title>Most used services & More</Title>
-                    <ServiceCard {...service}/>
+                    <Services/>
                 </ContentContainer>
             </InnerPageContainer>
         </PageContainer>
