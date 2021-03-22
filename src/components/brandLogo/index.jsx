@@ -21,17 +21,17 @@ const LogoImage = styled.div`
 const LogoTitle = styled.h2`
   margin: 0 0 0 6px;
   font-size: ${({size}) => size ? size + "px" : "1.2em"};
-  color: #fff;
-  font-weight: 600;
+  color: ${({color}) => color ? color : "#fff"};
+  font-weight: 900;
 `
 
-const BrandLogo = ({logoSize, textSize}) => {
+const BrandLogo = ({logoSize, textSize, color, hideLogo}) => {
     return (
         <BrandLogoContainer>
-            <LogoImage size={logoSize}>
+            {!hideLogo && <LogoImage size={logoSize}>
                 <img src={LogoImg} alt="Servycing logo"/>
-            </LogoImage>
-            <LogoTitle size={textSize}>Servycing</LogoTitle>
+            </LogoImage>}
+            <LogoTitle size={textSize} color={color}>Servycing</LogoTitle>
         </BrandLogoContainer>
     );
 };

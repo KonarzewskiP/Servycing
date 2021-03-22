@@ -7,6 +7,7 @@ import {deviceSize} from "../../components/responsive";
 import Services from "./services";
 import SpecialistAd from "../../components/specialistAd";
 import {Marginer} from "../../components/marginer";
+import Footer from "../../components/footer";
 
 
 const ContentContainer = styled.div`
@@ -16,7 +17,7 @@ const ContentContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
 
-/*  @media screen and (max-width: ${deviceSize.mobile}px) {
+    /*  @media screen and (max-width: ${deviceSize.mobile}px) {
     padding: 5px;
   }*/
 `
@@ -34,7 +35,9 @@ const HomePage = () => {
                 </ContentContainer>
                 <Marginer direction="vertical" margin="5em"/>
                 <SpecialistAd/>
+                <Marginer direction="vertical" margin="5em"/>
             </InnerPageContainer>
+            <Footer/>
         </PageContainer>
     );
 };
