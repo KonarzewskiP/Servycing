@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 
 import LogoImg from "../../images/logos/logo.png"
+import {Link} from "react-router-dom";
 
 const BrandLogoContainer = styled.div`
   display: flex;
@@ -25,13 +26,23 @@ const LogoTitle = styled.h2`
   font-weight: 900;
 `
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  
+`
+
 const BrandLogo = ({logoSize, textSize, color, hideLogo}) => {
     return (
         <BrandLogoContainer>
-            {!hideLogo && <LogoImage size={logoSize}>
-                <img src={LogoImg} alt="Servycing logo"/>
-            </LogoImage>}
-            <LogoTitle size={textSize} color={color}>Servycing</LogoTitle>
+            {!hideLogo &&
+            <Link to="/">
+                <LogoImage size={logoSize}>
+                    <img src={LogoImg} alt="Servycing logo"/>
+                </LogoImage>
+            </Link>}
+            <StyledLink to="/">
+                <LogoTitle size={textSize} color={color}>Servycing</LogoTitle>
+            </StyledLink>
         </BrandLogoContainer>
     );
 };

@@ -12,8 +12,10 @@ const CardContainer = styled.div`
   overflow: hidden;
   background-color: #fff;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.45);
-  margin: 0.5em 0 1.3em 1.8em;
+  margin: 0.5em 0.5em 1.3em 0.5em;
+  
 `
+
 const TopContainer = styled.div`
   width: 100%;
 `
@@ -82,7 +84,7 @@ const StartingAtText = styled.h6`
   color: rgba(161, 161, 161, 0.9);
 `
 
-const ServiceCard = ({thumbnailUrl, specialist, id, title, rate, rating}) => {
+const ServiceCard = ({thumbnailUrl, specialist, title, rate, rating}) => {
     return (
         <CardContainer>
             <TopContainer>

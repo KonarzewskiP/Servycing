@@ -10,20 +10,25 @@ const ServicesContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    align-items: center;
+  }
 `
 const Title = styled.h1`
   font-weight: 900;
   color: #000;
   margin-left: 0.95em;
 
-    /*  @media screen and (max-width: ${deviceSize.mobile}px) {
-    font-size: 25px;
-  }*/
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    font-size: 1.4em;
+  }
 `
 
 const ServicesWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
+
 `
 
 const BottomContainer = styled.div`
@@ -40,7 +45,7 @@ const WarningText = styled.h3`
 
 const ViewMoreButton = styled(Button)`
   background-color: #f2f2f2;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
   color: #959595;
   font-size: 14px;
 
@@ -65,7 +70,7 @@ const Services = () => {
                 console.log("Error: ", err)
             }))
 
-        await wait(1500);
+        await wait(1000);
 
         if (response) {
             setServices(response.data);

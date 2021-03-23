@@ -17,16 +17,16 @@ const ContentContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
 
-    /*  @media screen and (max-width: ${deviceSize.mobile}px) {
+  @media screen and (max-width: ${deviceSize.mobile}px) {
     padding: 5px;
-  }*/
+  }
 `
 
 const HomePage = () => {
     return (
         <PageContainer>
             <TopSection>
-                <Navbar/>
+                <Navbar useTransparent/>
             </TopSection>
             <InnerPageContainer>
                 <Marginer direction="vertical" margin="2em"/>

@@ -4,6 +4,7 @@ import BrandLogo from "../brandLogo";
 
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFacebook, faTwitter} from "@fortawesome/free-brands-svg-icons";
+import {deviceSize} from "../responsive";
 
 const FooterContainer = styled.div`
   width: 100%;
@@ -62,6 +63,11 @@ const FLink = styled.a`
   &:not(:last-of-type) {
     margin-bottom: 0.5em;
   }
+
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    margin: 0;
+    text-align: left;
+  }
 `
 const PrivacyText = styled.h6`
   font-size: 0.8em;
@@ -85,6 +91,7 @@ const SocialIcon = styled.div`
 `
 
 const Footer = () => {
+
     return (
         <FooterContainer>
             <TopContainer>

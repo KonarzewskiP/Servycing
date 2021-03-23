@@ -3,6 +3,9 @@ import styled from "styled-components";
 import BrandLogo from "../brandLogo";
 import Button from "../button";
 import {Marginer} from "../marginer";
+import {Link} from "react-router-dom";
+import {useMediaQuery} from "react-responsive/src";
+import {deviceSize} from "../responsive";
 
 const NavbarContainer = styled.div`
   width: 100%;
@@ -11,6 +14,8 @@ const NavbarContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0 1.5em;
+
+  background-color: ${({useTransparent}) => useTransparent ? "transparent" : "#264653"};
 `
 
 const AccessibilityContainer = styled.div`
@@ -19,7 +24,7 @@ const AccessibilityContainer = styled.div`
   align-items: center;
 `
 
-const AnchorLink = styled.a`
+const AnchorLink = styled(Link)`
   color: #fff;
   font-size: 0.85em;
   cursor: pointer;
@@ -38,18 +43,23 @@ const Separator = styled.div`
   background-color: #fff;
 `
 
-const Navbar = () => {
+const Navbar = ({useTransparent}) => {
+    const isMobile = useMediaQuery({maxWidth: deviceSize.mobile})
+
+
     return (
-        <NavbarContainer>
+        <NavbarContainer useTransparent={useTransparent}>
             <BrandLogo/>
             <AccessibilityContainer>
-                <AnchorLink>Specialist Portal</AnchorLink>
+                {!isMobile && <AnchorLink>Specialist Portal</AnchorLink>}
+                {!isMobile && <Marginer direction="horizontal" margin={10}/>}
+                {!isMobile && <Separator/>}
                 <Marginer direction="horizontal" margin={10}/>
-                <Separator/>
-                <Marginer direction="horizontal" margin={10}/>
-                <Button size={11}>Register</Button>
+                <Link to="/customer/access/signup">
+                    <Button size={11}>Register</Button>
+                </Link>
                 <Marginer direction="horizontal" margin={7}/>
-                <AnchorLink>Login</AnchorLink>
+                <AnchorLink to="/customer/access/signin">Login</AnchorLink>
             </AccessibilityContainer>
         </NavbarContainer>
     );
